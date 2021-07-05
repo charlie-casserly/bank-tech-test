@@ -2,14 +2,17 @@ require_relative 'printer'
 require_relative 'account_log'
 
 class Bank
+  attr_reader :account_log
 
-  def initialize
+  def initialize(account_log = AccountLog.new)
+    @account_log = account_log
     @balance = 0
   end
 
   def deposit(amount)
     invalid_input_message unless valid_input?(amount)
     @balance += amount
+    account_log.update(amount, balance)
   end
 
   def withdraw(amount)
