@@ -1,0 +1,3 @@
+class AccountLog
+  
+end
