@@ -19,6 +19,7 @@ class Bank
     invalid_input_message unless valid_input?(amount)
     raise "Insufficient funds" if insufficient_funds?(amount)
     @balance -= amount
+    account_log.update(amount, balance)
   end
 
   def show_balance
