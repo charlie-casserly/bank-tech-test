@@ -7,7 +7,7 @@ describe AccountLog do
     before { account.update(50, 100) }
 
     it "logs the date of a transaction" do 
-      expect(account.log.first[:date]).to eq("2021-07-05")
+      expect(account.log.first[:date].to_s).to eq("2021-07-05")
     end
 
     it "logs the amount of the transation" do 

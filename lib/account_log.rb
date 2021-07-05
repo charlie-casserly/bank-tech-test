@@ -9,7 +9,7 @@ class AccountLog
 
   def update(amount, balance)
     log << { 
-      date: Date.today.to_s,
+      date: Date.today,
       amount: amount,
       balance: balance
     }
