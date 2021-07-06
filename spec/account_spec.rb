@@ -4,9 +4,9 @@ describe Account do
   let(:statement) { double('Statement') }
   let(:account) { described_class.new(statement) }
 
-  before do 
-    allow(statement).to receive(:deposit_entry) 
-    allow(statement).to receive(:withdraw_entry) 
+  before do
+    allow(statement).to receive(:deposit_entry)
+    allow(statement).to receive(:withdraw_entry)
   end
 
   context '#show_balance' do
