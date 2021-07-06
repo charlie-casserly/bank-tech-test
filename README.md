@@ -48,3 +48,7 @@ Listed below are some methods you can call in this application.
 1. Clone this repo 
 1. cd into your local clone
 1. run 'bundle install'
+1. All tests can be run by typing 'rspec' in the terminal
+
+### Notes on development
+I wrote this program in Ruby and used a TDD development process to implement it's features. I had planned to develop the program with three Classes (Account, Statement, Printer), which I hope I was successful in doing so meaningfully. All outside dependencies were doubled and mocked in my testing and I achieved 100% test coverage.
