@@ -9,16 +9,16 @@ describe Account do
     allow(statement).to receive(:withdraw_entry)
   end
 
-  context '#show_balance' do
+  context '#balance' do
     it 'a new account object initializes with a balance of 0' do
-      expect(account.show_balance).to eq(0)
+      expect(account.balance).to eq(0)
     end
   end
 
   context '#deposit' do
     it 'allows a user to deposit money and adds the amount to the balance' do
       account.deposit(100.00)
-      expect(account.show_balance).to eq(100.00)
+      expect(account.balance).to eq(100.00)
     end
 
     it 'raises an error if input isnt a float or integer' do
@@ -31,7 +31,7 @@ describe Account do
 
     it 'removes withdrawn money from the balance' do
       account.withdraw(50.00)
-      expect(account.show_balance).to eq(50.00)
+      expect(account.balance).to eq(50.00)
     end
 
     it 'raises an error if a withdrawal would set the balance below 0' do

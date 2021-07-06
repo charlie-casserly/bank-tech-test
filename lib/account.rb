@@ -2,7 +2,7 @@ require_relative 'printer'
 require_relative 'statement'
 
 class Account
-  attr_reader :statement, :printer
+  attr_reader :statement, :printer, :balance
 
   def initialize(statement = Statement.new, printer = Printer.new)
     @printer = printer
@@ -24,14 +24,8 @@ class Account
     @balance -= amount
     statement.withdraw_entry(amount, balance)
   end
-
-  def show_balance
-    balance
-  end
-
+  
   private
-
-  attr_reader :balance
 
   def valid_input?(amount)
     amount.is_a?(Integer) || amount.is_a?(Float)

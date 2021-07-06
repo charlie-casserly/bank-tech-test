@@ -6,7 +6,10 @@ class Printer
       transactions += "\n#{transaction[:date]} || #{transaction[:deposit]} || #{transaction[:withdraw]} || #{transaction[:balance]}"
     end
 
-    puts "date || credit || debit || balance" + transactions
     "date || credit || debit || balance" + transactions
+  end
+
+  def print_balance(statement)
+    "Balance: #{statement.log.first[:balance]}"
   end
 end
