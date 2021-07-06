@@ -8,7 +8,7 @@ class Statement
   end
 
   def entry(amount, balance)
-    log << { 
+    log << {
       date: Date.today,
       amount: amount,
       balance: balance

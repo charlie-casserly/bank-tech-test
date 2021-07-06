@@ -1,3 +1,2 @@
-class Printer 
-
+class Printer
 end
