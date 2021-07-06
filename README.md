@@ -12,26 +12,34 @@ Super Cool Bank App is a program that allows the user to deposit and withdraw ca
 
 In IRB, type 'account = Account.new' to create a new Account object simply named *account*. Listed below are some methods you can call on this object or other Classes in the application.
 
-**Making a cash deposit**
-* account.deposit(amount)
- * *examples*
-   account.deposit(50) - deposits £50 into the account
-   account.deposit(99.99) - deposits £99.99 into the account
+### Making a cash deposit
+* *account.deposit(amount)*
 
-**Making a cash withdrawal**
-* account.withdraw(amount)
-  * *examples*
-    account.withdraw(10) - withdraws £10 from the account
-    account.withdraw(50) - withdraws £50 from the account 
+   Examples:
 
-*Withdrawals cannot be made that will set the accounts balance below £0*
+   *account.deposit(50)* - deposits £50 into the account
 
-**Viewing your current balance**
-* Printer.print_balance(account.statement)
+   *account.deposit(99.99)* - deposits £99.99 into the account
+
+### Making a cash withdrawal
+* *account.withdraw(amount)*
+
+  *Examples:*
+
+  *account.withdraw(10)* - withdraws £10 from the account
+
+  *account.withdraw(50)* - withdraws £50 from the account 
+
+*__*Withdrawals cannot be made that will set the accounts balance below £0*__*
+
+### Viewing your current balance
+* *Printer.print_balance(account.statement)*
+
   This feature will print the current balance of the Account object given in the argument. In this case, that object is named *account*.
 
-**Viewing your bank statement**
-* Printer.print_statement(account.statement)
+### Viewing your bank statement
+* *Printer.print_statement(account.statement)*
+
   This feature will print the bank statement of the Account object given in the argument. In this case, that object is named *account*.
 
 ## For Developers to install
