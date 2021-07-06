@@ -4,7 +4,10 @@ describe Account do
   let(:statement) { double('Statement') }
   let(:account) { described_class.new(statement) }
 
-  before { allow(statement).to receive(:entry) }
+  before do 
+    allow(statement).to receive(:deposit_entry) 
+    allow(statement).to receive(:withdraw_entry) 
+  end
 
   context '#show_balance' do
     it 'a new account object initializes with a balance of 0' do

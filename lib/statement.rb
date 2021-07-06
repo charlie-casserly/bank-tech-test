@@ -7,10 +7,20 @@ class Statement
     @log = []
   end
 
-  def entry(amount, balance)
+  def deposit_entry(amount, balance)
     log << {
       date: Date.today,
-      amount: amount,
+      deposit: amount,
+      withdraw: nil,
+      balance: balance
+    }
+  end
+
+  def withdraw_entry(amount, balance)
+    log << {
+      date: Date.today,
+      deposit: nil,
+      withdraw: amount,
       balance: balance
     }
   end

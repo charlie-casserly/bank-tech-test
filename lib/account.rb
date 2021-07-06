@@ -13,7 +13,7 @@ class Account
     raise 'Invalid input. Please try again.' unless valid_input?(amount)
 
     @balance += amount
-    statement.entry(amount, balance)
+    statement.deposit_entry(amount, balance)
   end
 
   def withdraw(amount)
@@ -21,7 +21,7 @@ class Account
     raise 'Insufficient funds' if insufficient_funds?(amount)
 
     @balance -= amount
-    statement.entry(amount, balance)
+    statement.withdraw_entry(amount, balance)
   end
 
   def show_balance
