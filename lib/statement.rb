@@ -10,9 +10,9 @@ class Statement
   def deposit_entry(amount, balance)
     log << {
       date: Date.today,
-      deposit: amount,
+      deposit: amount.to_f.round(2),
       withdraw: nil,
-      balance: balance
+      balance: balance.to_f.round(2)
     }
   end
 
@@ -20,8 +20,8 @@ class Statement
     log << {
       date: Date.today,
       deposit: nil,
-      withdraw: amount,
-      balance: balance
+      withdraw: amount.to_f.round(2),
+      balance: balance.to_f.round(2)
     }
   end
 end

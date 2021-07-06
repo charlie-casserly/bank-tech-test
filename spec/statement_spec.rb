@@ -9,16 +9,20 @@ describe Statement do
       statement.deposit_entry(50, 100)
     end
 
+    it 'converts integer input into a float in the log' do 
+      expect(statement.log.first[:deposit]).to be_a(Float)
+    end
+
     it 'logs the date of a deposit' do
       expect(statement.log.first[:date].to_s).to eq('2021-07-05')
     end
 
     it 'logs the amount of the deposit' do
-      expect(statement.log.first[:deposit]).to eq(50)
+      expect(statement.log.first[:deposit]).to eq(50.00)
     end
 
     it 'logs the balance after a deposit' do
-      expect(statement.log.first[:balance]).to eq(100)
+      expect(statement.log.first[:balance]).to eq(100.00)
     end
   end
 
@@ -28,16 +32,20 @@ describe Statement do
       statement.withdraw_entry(50, 100)
     end
 
+    it 'converts integer input into a float in the log' do 
+      expect(statement.log.first[:withdraw]).to be_a(Float)
+    end
+
     it 'logs the date of a deposit' do
       expect(statement.log.first[:date].to_s).to eq('2021-07-05')
     end
 
     it 'logs the amount of the deposit' do
-      expect(statement.log.first[:withdraw]).to eq(50)
+      expect(statement.log.first[:withdraw]).to eq(50.00)
     end
 
     it 'logs the balance after a deposit' do
-      expect(statement.log.first[:balance]).to eq(100)
+      expect(statement.log.first[:balance]).to eq(100.00)
     end
   end
 end

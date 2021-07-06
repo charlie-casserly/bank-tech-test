@@ -2,9 +2,10 @@ require_relative 'printer'
 require_relative 'statement'
 
 class Account
-  attr_reader :statement
+  attr_reader :statement, :printer
 
-  def initialize(statement = Statement.new)
+  def initialize(statement = Statement.new, printer = Printer.new)
+    @printer = printer
     @statement = statement
     @balance = 0
   end

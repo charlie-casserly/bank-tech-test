@@ -3,7 +3,7 @@ require 'printer'
 describe Printer do
   let(:printer) { described_class.new }
 
-  it 'prints a bank statement after one deposit' do
+  it 'prints a detailed and formatted bank statement after one deposit' do
     statement = double(:Statement, log: [
                          {
                            date: '2021-07-06',
@@ -18,7 +18,7 @@ describe Printer do
     )
   end
 
-  it 'prints a bank statement after one deposit and one withdrawal' do
+  it 'prints a detailed and formatted bank statement after one deposit and one withdrawal' do
     statement = double(:Statement, log: [
                          {
                            date: '2021-07-06',
@@ -28,7 +28,7 @@ describe Printer do
                          },
 
                          {
-                           date: '2021-07-06',
+                           date: '2021-07-06', 
                            deposit: nil,
                            withdraw: 600.0,
                            balance: 400.0
