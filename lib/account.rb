@@ -1,25 +1,25 @@
 require_relative 'printer'
-require_relative 'account_log'
+require_relative 'statement'
 
-class Bank
-  attr_reader :account_log
+class Account
+  attr_reader :statement
 
-  def initialize(account_log = AccountLog.new)
-    @account_log = account_log
+  def initialize(statement = Statement.new)
+    @statement = statement
     @balance = 0
   end
 
   def deposit(amount)
     raise "Invalid input. Please try again." unless valid_input?(amount)
     @balance += amount
-    account_log.update(amount, balance)
+    statement.entry(amount, balance)
   end
 
   def withdraw(amount)
     raise "Invalid input. Please try again." unless valid_input?(amount)
     raise "Insufficient funds" if insufficient_funds?(amount)
     @balance -= amount
-    account_log.update(amount, balance)
+    statement.entry(amount, balance)
   end
 
   def show_balance

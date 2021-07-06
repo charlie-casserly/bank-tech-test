@@ -1,13 +1,13 @@
 require 'date'
 
-class AccountLog
+class Statement
   attr_reader :log
 
   def initialize
     @log = []
   end
 
-  def update(amount, balance)
+  def entry(amount, balance)
     log << { 
       date: Date.today,
       amount: amount,
