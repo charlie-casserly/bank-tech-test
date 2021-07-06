@@ -30,17 +30,17 @@ In IRB, type 'account = Account.new' to create a new Account object simply named
 
   *account.withdraw(50)* - withdraws £50 from the account 
 
-*__*Withdrawals cannot be made that will set the accounts balance below £0*__*
+*__*Withdrawals cannot be made that will set the accounts balance below £0.*__*
 
 ### Viewing your current balance
 * *Printer.print_balance(account.statement)*
 
-  This feature will print the current balance of the Account object given in the argument. In this case, that object is named *account*.
+  This feature will print the account's current balance.
 
 ### Viewing your bank statement
 * *Printer.print_statement(account.statement)*
 
-  This feature will print the bank statement of the Account object given in the argument. In this case, that object is named *account*.
+  This feature will print the account's bank statement.
 
 ## For Developers to install
 

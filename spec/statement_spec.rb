@@ -9,7 +9,7 @@ describe Statement do
       statement.deposit_entry(50, 100)
     end
 
-    it 'converts integer input into a float in the log' do 
+    it 'converts integer input into a float in the log' do
       expect(statement.log.first[:deposit]).to be_a(Float)
     end
 
@@ -32,7 +32,7 @@ describe Statement do
       statement.withdraw_entry(50, 100)
     end
 
-    it 'converts integer input into a float in the log' do 
+    it 'converts integer input into a float in the log' do
       expect(statement.log.first[:withdraw]).to be_a(Float)
     end
 
