@@ -1,13 +1,7 @@
 require 'printer'
 
 describe Printer do
-  let(:printer) { described_class.new }
-
   context '#print_statement' do 
-    it 'can only receive a Statement object' do 
-
-    end
-
     it 'prints a detailed and formatted bank statement after one deposit' do
       statement = double(:Statement, log: [
                           {
@@ -18,7 +12,7 @@ describe Printer do
                           }
                         ])
 
-      expect(printer.print_statement(statement)).to eq(
+      expect(Printer.print_statement(statement)).to eq(
         "date || credit || debit || balance\n2021-07-06 || 1000.0 ||  || 1000.0"
       )
     end
@@ -40,7 +34,7 @@ describe Printer do
                           }
                         ])
 
-      expect(printer.print_statement(statement)).to eq(
+      expect(Printer.print_statement(statement)).to eq(
         "date || credit || debit || balance\n2021-07-06 || 1000.0 ||  || 1000.0\n2021-07-06 ||  || 600.0 || 400.0"
       )
     end
@@ -53,8 +47,7 @@ describe Printer do
                             balance: 50.0
                           }
                         ])
-      expect(printer.print_balance(statement)).to eq("Balance: 50.0")
+      expect(Printer.print_balance(statement)).to eq("Balance: 50.0")
     end
   end
-
 end
