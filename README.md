@@ -7,10 +7,11 @@ Super Cool Bank App is a program that allows the user to deposit and withdraw ca
 1. Clone this repo
 1. cd into your local clone
 1. In your terminal, run 'irb -r './lib/account.rb'
+1. In IRB, type 'account = Account.new' to create a new Account object simply named *account*.
 
 ## How to use Super Cool Bank App
 
-In IRB, type 'account = Account.new' to create a new Account object simply named *account*. Listed below are some methods you can call on this object or other Classes in the application.
+Listed below are some methods you can call in this application.
 
 ### Making a cash deposit
 * *account.deposit(amount)*
@@ -24,7 +25,7 @@ In IRB, type 'account = Account.new' to create a new Account object simply named
 ### Making a cash withdrawal
 * *account.withdraw(amount)*
 
-  *Examples:*
+  Examples:
 
   *account.withdraw(10)* - withdraws £10 from the account
 
