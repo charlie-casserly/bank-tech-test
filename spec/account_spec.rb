@@ -1,7 +1,7 @@
 require 'account'
 
 describe Account do
-  let(:statement) { double('Statement') }
+  let(:statement) { double(:statement) }
   let(:account) { described_class.new(statement) }
 
   before do

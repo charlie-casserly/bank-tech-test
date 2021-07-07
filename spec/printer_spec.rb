@@ -3,7 +3,7 @@ require 'printer'
 describe Printer do
   context '#print_statement' do
     it 'prints a detailed and formatted bank statement after one deposit' do
-      statement = double(:Statement, log: [
+      statement = double(:statement, log: [
                            {
                              date: '2021-07-06',
                              deposit: 1000.0,
@@ -18,7 +18,7 @@ describe Printer do
     end
 
     it 'prints a detailed and formatted bank statement after one deposit and one withdrawal' do
-      statement = double(:Statement, log: [
+      statement = double(:statement, log: [
                            {
                              date: '2021-07-06',
                              deposit: 1000.0,
@@ -42,7 +42,7 @@ describe Printer do
 
   context '#print_balance' do
     it 'prints the accounts current balance' do
-      statement = double(:Statement, log: [
+      statement = double(:statement, log: [
                            {
                              balance: 50.0
                            }

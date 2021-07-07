@@ -9,19 +9,30 @@ class Statement
 
   def deposit_entry(amount, balance)
     log << {
-      date: Date.today,
-      deposit: amount.to_f.round(2),
+      date: format_date,
+      deposit: format_currency(amount),
       withdraw: nil,
-      balance: balance.to_f.round(2)
+      balance: format_currency(balance)
     }
   end
 
   def withdraw_entry(amount, balance)
     log << {
-      date: Date.today,
+      date: format_date,
       deposit: nil,
-      withdraw: amount.to_f.round(2),
-      balance: balance.to_f.round(2)
+      withdraw: format_currency(amount),
+      balance: format_currency(balance)
     }
   end
+
+  private 
+
+  def format_currency(amount)
+    sprintf("%.2f",(amount)).to_f
+  end
+
+  def format_date
+    Date.today.strftime("%d/%m/%Y")
+  end
 end
+

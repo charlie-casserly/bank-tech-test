@@ -2,10 +2,10 @@ require 'statement'
 
 describe Statement do
   let(:statement) { described_class.new }
+  let(:today) { DateTime.now.strftime("%d/%m/%Y") }
 
   context '#deposit_entry' do
     before do
-      allow(Date).to receive(:today).and_return('2021-07-05')
       statement.deposit_entry(50, 100)
     end
 
@@ -14,7 +14,7 @@ describe Statement do
     end
 
     it 'logs the date of a deposit' do
-      expect(statement.log.first[:date].to_s).to eq('2021-07-05')
+      expect(statement.log.first[:date].to_s).to eq(today)
     end
 
     it 'logs the amount of the deposit' do
@@ -28,7 +28,6 @@ describe Statement do
 
   context '#withdraw_entry' do
     before do
-      allow(Date).to receive(:today).and_return('2021-07-05')
       statement.withdraw_entry(50, 100)
     end
 
@@ -37,7 +36,7 @@ describe Statement do
     end
 
     it 'logs the date of a deposit' do
-      expect(statement.log.first[:date].to_s).to eq('2021-07-05')
+      expect(statement.log.first[:date].to_s).to eq(today)
     end
 
     it 'logs the amount of the deposit' do
