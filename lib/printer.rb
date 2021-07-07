@@ -2,7 +2,7 @@ class Printer
   def self.print_statement(statement)
     transactions = ''
 
-    statement.log.each do |transaction|
+    statement.log.reverse.each do |transaction|
       transactions += "\n#{transaction[:date]} || #{transaction[:deposit]} || #{transaction[:withdraw]} || #{transaction[:balance]}"
     end
 

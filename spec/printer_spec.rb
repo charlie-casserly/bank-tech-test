@@ -35,7 +35,7 @@ describe Printer do
                          ])
 
       expect(Printer.print_statement(statement)).to eq(
-        "date || credit || debit || balance\n2021-07-06 || 1000.0 ||  || 1000.0\n2021-07-06 ||  || 600.0 || 400.0"
+        "date || credit || debit || balance\n2021-07-06 ||  || 600.0 || 400.0\n2021-07-06 || 1000.0 ||  || 1000.0"
       )
     end
   end
