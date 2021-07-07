@@ -2,26 +2,23 @@ require_relative 'printer'
 require_relative 'statement'
 
 class Account
-  attr_reader :statement, :balance
+  attr_reader :statement
 
   def initialize(statement = Statement.new)
     @statement = statement
-    @balance = 0
   end
 
   def deposit(amount)
     raise 'Invalid input. Please try again.' unless valid_input?(amount)
 
-    @balance += amount
-    statement.deposit_entry(amount, balance)
+    statement.record_deposit(amount)
   end
 
   def withdraw(amount)
     raise 'Invalid input. Please try again.' unless valid_input?(amount)
     raise 'Insufficient funds' if insufficient_funds?(amount)
 
-    @balance -= amount
-    statement.withdraw_entry(amount, balance)
+    statement.record_withdrawal(amount)
   end
 
   private
@@ -31,6 +28,11 @@ class Account
   end
 
   def insufficient_funds?(amount)
-    balance - amount < 0
+    balance = 0
+    statement.log.each do |entry|
+      balance += entry[:deposit].to_i if entry[:withdraw] == nil
+      balance -= entry[:withdraw].to_i if entry[:deposit] == nil
+    end 
+    (balance - amount) < 0
   end
 end

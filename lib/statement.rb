@@ -7,32 +7,41 @@ class Statement
     @log = []
   end
 
-  def deposit_entry(amount, balance)
+  def record_deposit(amount)
     log << {
       date: format_date,
       deposit: format_currency(amount),
       withdraw: nil,
-      balance: format_currency(balance)
+      balance: format_currency(current_balance + amount)
     }
   end
 
-  def withdraw_entry(amount, balance)
+  def record_withdrawal(amount)
     log << {
       date: format_date,
       deposit: nil,
       withdraw: format_currency(amount),
-      balance: format_currency(balance)
+      balance: format_currency(current_balance - amount)
     }
   end
 
   private 
 
   def format_currency(amount)
-    sprintf("%.2f",(amount)).to_f
+    sprintf("%.2f",(amount))
+  end
+
+  def current_balance
+    balance = 0
+    @log.each do |entry|
+      balance += entry[:deposit].to_i if entry[:withdraw] == nil
+      balance -= entry[:withdraw].to_i if entry[:deposit] == nil
+    end 
+    return balance
   end
 
   def format_date
-    Date.today.strftime("%d/%m/%Y")
+    DateTime.now.strftime("%d/%m/%Y")
   end
 end
 

@@ -8,8 +8,4 @@ class Printer
 
     'date || credit || debit || balance' + transactions
   end
-
-  def self.print_balance(statement)
-    "Balance: #{statement.log.first[:balance]}"
-  end
 end
