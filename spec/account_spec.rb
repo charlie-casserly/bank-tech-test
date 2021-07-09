@@ -1,17 +1,8 @@
 require 'account'
 
 describe Account do
+  let(:statement) { double(:statement) }
   let(:account) { described_class.new(statement) }
-  let(:statement) do
-    double(:statement, log: [
-             {
-               date: nil,
-               deposit: 0,
-               withdraw: 0,
-               balance: 0
-             }
-           ])
-  end
 
   before do
     allow(statement).to receive(:current_balance).and_return(100)
