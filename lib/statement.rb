@@ -16,11 +16,6 @@ class Statement
   end
 
   def current_balance
-    balance = 0
-    @log.each do |entry|
-      balance += entry[:transaction].to_i
-    end 
-    return balance
+    log.inject(0) { |result, element| result + element[:transaction] }
   end
 end
-
