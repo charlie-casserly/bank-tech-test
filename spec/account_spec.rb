@@ -1,6 +1,7 @@
 require 'account'
 
 describe Account do
+  let(:account) { described_class.new(statement) }
   let(:statement) do
     double(:statement, log: [
              {
@@ -11,11 +12,10 @@ describe Account do
              }
            ])
   end
-  let(:account) { described_class.new(statement) }
 
-  before { 
-    allow(statement).to receive(:current_balance).and_return(100) 
-  }
+  before do
+    allow(statement).to receive(:current_balance).and_return(100)
+  end
 
   context '#deposit' do
     it 'raises an error if input isnt a float or integer' do
