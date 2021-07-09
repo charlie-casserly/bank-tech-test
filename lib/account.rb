@@ -11,14 +11,14 @@ class Account
   def deposit(amount)
     raise 'Invalid input. Please try again.' unless valid_input?(amount)
 
-    statement.record_deposit(amount)
+    statement.record_transaction(amount)
   end
 
   def withdraw(amount)
     raise 'Invalid input. Please try again.' unless valid_input?(amount)
     raise 'Insufficient funds' if insufficient_funds?(amount)
 
-    statement.record_withdrawal(amount * -1)
+    statement.record_transaction(amount *= -1)
   end
 
   private

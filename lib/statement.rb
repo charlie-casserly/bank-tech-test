@@ -7,19 +7,11 @@ class Statement
     @log = []
   end
 
-  def record_deposit(amount)
+  def record_transaction(amount)
     log << {
       date: DateTime.now,
-      transaction: format_currency(amount),
-      balance: format_currency(current_balance + amount)
-    }
-  end
-
-  def record_withdrawal(amount)
-    log << {
-      date: DateTime.now,
-      transaction: format_currency(amount),
-      balance: format_currency(current_balance - amount)
+      transaction: amount,
+      balance: current_balance + amount
     }
   end
 
@@ -27,16 +19,7 @@ class Statement
     balance = 0
     @log.each do |entry|
       balance += entry[:transaction].to_i
-    end 
-    return balance
+    end
+    balance
   end
-
-  private 
-
-  def format_currency(amount)
-    sprintf("%.2f",(amount))
-  end
-
-  
 end
-

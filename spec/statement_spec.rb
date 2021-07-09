@@ -2,10 +2,10 @@ require 'statement'
 
 describe Statement do
   let(:statement) { described_class.new }
-  
-  context '#record_deposit' do
+
+  context '#record_transaction' do
     before do
-      statement.record_deposit(50)
+      statement.record_transaction(50)
     end
 
     it 'logs a date for a deposit' do
@@ -13,32 +13,30 @@ describe Statement do
     end
 
     it 'logs the amount of the deposit' do
-      expect(statement.log.first[:transaction]).to eq("50.00")
+      expect(statement.log.first[:transaction]).to eq(50)
     end
 
     it 'logs the balance after a deposit' do
-      expect(statement.log.first[:balance]).to eq("50.00")
+      expect(statement.log.first[:balance]).to eq(50)
     end
   end
 
   context '#record_withdraw' do
     before do
-      statement.record_deposit(100)
-      statement.record_withdrawal(50)
+      statement.record_transaction(100)
+      statement.record_transaction(-50)
     end
 
-    
     it 'logs a date for a withdrawal' do
       expect(statement.log[1][:date]).to be_a(DateTime)
     end
-    
 
     it 'logs the amount of the withdrawal' do
-      expect(statement.log[1][:transaction]).to eq("50.00")
+      expect(statement.log[1][:transaction]).to eq(-50)
     end
 
     it 'logs the balance after a withdrawal' do
-      expect(statement.log[1][:balance]).to eq("50.00")
+      expect(statement.log[1][:balance]).to eq(50)
     end
   end
 end

@@ -1,23 +1,34 @@
 class Printer
   def self.print_statement(statement)
     header + body(statement)
-  end 
+  end
 
   class << self
-
     private
 
     def header
-      "date || credit || debit || balance"
-    end   
+      'date || credit || debit || balance'
+    end
 
     def body(statement)
       transactions = ''
 
       statement.log.reverse.each do |transaction|
-        transactions += "\n#{transaction[:date].strftime("%d/%m/%Y")} || #{transaction[:deposit]} || #{transaction[:withdraw]} || #{transaction[:balance]}"
+        transactions += "\n#{transaction[:date].strftime('%d/%m/%Y')} || #{transaction_format(transaction)} || #{format_currency(transaction[:balance])}"
       end
       transactions
+    end
+
+    def transaction_format(transaction)
+      if transaction[:transaction].to_i >= 0
+        "#{format_currency(transaction[:transaction])} || "
+      else
+        " || #{format_currency(transaction[:transaction].to_i.abs)}"
+      end
+    end
+
+    def format_currency(amount)
+      format('%.2f', amount)
     end
   end
 end

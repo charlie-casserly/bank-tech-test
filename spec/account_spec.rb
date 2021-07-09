@@ -1,14 +1,16 @@
 require 'account'
 
 describe Account do
-  let(:statement) { double(:statement, log: [
-    {
-                            date: nil,
-                            deposit: 0,
-                            withdraw: 0,
-                            balance: 0
-    }
-  ]) }
+  let(:statement) do
+    double(:statement, log: [
+             {
+               date: nil,
+               deposit: 0,
+               withdraw: 0,
+               balance: 0
+             }
+           ])
+  end
   let(:account) { described_class.new(statement) }
 
   before do

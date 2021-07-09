@@ -1,22 +1,22 @@
 require 'account'
 
-describe 'feature tests' do 
+describe 'feature tests' do
   context 'depositing and withdrawing' do
-    it 'transactions are accumulated and added into the statement' do 
-      account = Account.new 
+    it 'transactions are accumulated and added into the statement' do
+      account = Account.new
 
       account.deposit(50)
       account.withdraw(40)
       account.deposit(100)
 
-      expect(account.statement.log.last[:balance]).to eq('110.00')
+      expect(account.statement.log.last[:balance]).to eq(110)
     end
   end
 
-  context 'printing' do 
+  context 'printing' do
     it 'prints all transactions made on an account through reading the information on its statement' do
-      account = Account.new 
-      today = DateTime.now.strftime("%d/%m/%Y")
+      account = Account.new
+      today = DateTime.now.strftime('%d/%m/%Y')
 
       account.deposit(50)
       account.withdraw(40)
