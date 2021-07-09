@@ -10,8 +10,7 @@ class Statement
   def record_deposit(amount)
     log << {
       date: DateTime.now,
-      deposit: format_currency(amount),
-      withdraw: nil,
+      transaction: format_currency(amount),
       balance: format_currency(current_balance + amount)
     }
   end
@@ -19,8 +18,7 @@ class Statement
   def record_withdrawal(amount)
     log << {
       date: DateTime.now,
-      deposit: nil,
-      withdraw: format_currency(amount),
+      transaction: format_currency(amount),
       balance: format_currency(current_balance - amount)
     }
   end
@@ -28,8 +26,7 @@ class Statement
   def current_balance
     balance = 0
     @log.each do |entry|
-      balance += entry[:deposit].to_i if entry[:withdraw] == nil
-      balance -= entry[:withdraw].to_i if entry[:deposit] == nil
+      balance += entry[:transaction].to_i
     end 
     return balance
   end

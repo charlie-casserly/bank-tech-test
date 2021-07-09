@@ -13,7 +13,7 @@ describe Statement do
     end
 
     it 'logs the amount of the deposit' do
-      expect(statement.log.first[:deposit]).to eq("50.00")
+      expect(statement.log.first[:transaction]).to eq("50.00")
     end
 
     it 'logs the balance after a deposit' do
@@ -34,7 +34,7 @@ describe Statement do
     
 
     it 'logs the amount of the withdrawal' do
-      expect(statement.log[1][:withdraw]).to eq("50.00")
+      expect(statement.log[1][:transaction]).to eq("50.00")
     end
 
     it 'logs the balance after a withdrawal' do
