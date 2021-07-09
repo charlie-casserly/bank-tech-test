@@ -13,11 +13,7 @@ describe Account do
   end
   let(:account) { described_class.new(statement) }
 
-  before do
-    allow(statement).to receive(:record_deposit)
-    allow(statement).to receive(:record_withdrawal)
-    allow(statement).to receive(:current_balance).and_return(0)
-  end
+  before { allow(statement).to receive(:current_balance).and_return(0) }
 
   context '#deposit' do
     it 'raises an error if input isnt a float or integer' do

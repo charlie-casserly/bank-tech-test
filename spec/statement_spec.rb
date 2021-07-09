@@ -21,8 +21,8 @@ describe Statement do
     end
   end
 
-  describe '#current_balance' do 
-    it 'sums the history of all transactions in the log' do 
+  describe '#current_balance' do
+    it 'sums the history of all transactions in the log' do
       statement.record_transaction(50)
       statement.record_transaction(60)
       statement.record_transaction(100)

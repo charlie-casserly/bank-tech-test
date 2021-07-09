@@ -16,6 +16,7 @@ class Printer
       statement.log.reverse.each do |transaction|
         transactions += "\n#{format_date(transaction)} || #{format_transaction(transaction)} || #{format_currency(transaction[:balance])}"
       end
+
       transactions
     end
 
@@ -24,15 +25,19 @@ class Printer
     end
 
     def format_transaction(transaction)
-      if transaction[:transaction].to_i >= 0
-        "#{format_currency(transaction[:transaction])} || "
-      else
-        " || #{format_currency(transaction[:transaction].to_i.abs)}"
-      end
+      transaction[:transaction].to_i >= 0 ? format_credit(transaction) : format_debit(transaction)
     end
 
     def format_currency(amount)
       format('%.2f', amount)
+    end
+
+    def format_credit(transaction)
+      "#{format_currency(transaction[:transaction])} || "
+    end
+
+    def format_debit(transaction)
+      " || #{format_currency(transaction[:transaction].to_i.abs)}"
     end
   end
 end
