@@ -14,6 +14,7 @@ describe Account do
   before do
     allow(statement).to receive(:record_deposit)
     allow(statement).to receive(:record_withdrawal)
+    allow(statement).to receive(:current_balance).and_return(0)
   end
 
   context '#deposit' do

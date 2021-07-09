@@ -9,7 +9,7 @@ class Statement
 
   def record_deposit(amount)
     log << {
-      date: format_date,
+      date: DateTime.now,
       deposit: format_currency(amount),
       withdraw: nil,
       balance: format_currency(current_balance + amount)
@@ -18,17 +18,11 @@ class Statement
 
   def record_withdrawal(amount)
     log << {
-      date: format_date,
+      date: DateTime.now,
       deposit: nil,
       withdraw: format_currency(amount),
       balance: format_currency(current_balance - amount)
     }
-  end
-
-  private 
-
-  def format_currency(amount)
-    sprintf("%.2f",(amount))
   end
 
   def current_balance
@@ -40,8 +34,12 @@ class Statement
     return balance
   end
 
-  def format_date
-    DateTime.now.strftime("%d/%m/%Y")
+  private 
+
+  def format_currency(amount)
+    sprintf("%.2f",(amount))
   end
+
+  
 end
 

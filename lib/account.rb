@@ -28,11 +28,6 @@ class Account
   end
 
   def insufficient_funds?(amount)
-    balance = 0
-    statement.log.each do |entry|
-      balance += entry[:deposit].to_i if entry[:withdraw] == nil
-      balance -= entry[:withdraw].to_i if entry[:deposit] == nil
-    end 
-    (balance - amount) < 0
+    (statement.current_balance - amount) < 0
   end
 end

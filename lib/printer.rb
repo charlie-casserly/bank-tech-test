@@ -4,7 +4,7 @@ class Printer
   end 
 
   class << self
-    
+
     private
 
     def header
@@ -15,7 +15,7 @@ class Printer
       transactions = ''
 
       statement.log.reverse.each do |transaction|
-        transactions += "\n#{transaction[:date]} || #{transaction[:deposit]} || #{transaction[:withdraw]} || #{transaction[:balance]}"
+        transactions += "\n#{transaction[:date].strftime("%d/%m/%Y")} || #{transaction[:deposit]} || #{transaction[:withdraw]} || #{transaction[:balance]}"
       end
       transactions
     end
