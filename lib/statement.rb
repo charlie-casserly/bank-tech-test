@@ -19,7 +19,8 @@ class Statement
     balance = 0
     @log.each do |entry|
       balance += entry[:transaction].to_i
-    end
-    balance
+    end 
+    return balance
   end
 end
+

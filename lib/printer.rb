@@ -14,12 +14,16 @@ class Printer
       transactions = ''
 
       statement.log.reverse.each do |transaction|
-        transactions += "\n#{transaction[:date].strftime('%d/%m/%Y')} || #{transaction_format(transaction)} || #{format_currency(transaction[:balance])}"
+        transactions += "\n#{format_date(transaction)} || #{format_transaction(transaction)} || #{format_currency(transaction[:balance])}"
       end
       transactions
     end
 
-    def transaction_format(transaction)
+    def format_date(transaction)
+      transaction[:date].strftime('%d/%m/%Y')
+    end
+
+    def format_transaction(transaction)
       if transaction[:transaction].to_i >= 0
         "#{format_currency(transaction[:transaction])} || "
       else
