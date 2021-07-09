@@ -1,11 +1,23 @@
 class Printer
   def self.print_statement(statement)
-    transactions = ''
+    header + body(statement)
+  end 
 
-    statement.log.reverse.each do |transaction|
-      transactions += "\n#{transaction[:date]} || #{transaction[:deposit]} || #{transaction[:withdraw]} || #{transaction[:balance]}"
+  class << self
+    
+    private
+
+    def header
+      "date || credit || debit || balance"
+    end   
+
+    def body(statement)
+      transactions = ''
+
+      statement.log.reverse.each do |transaction|
+        transactions += "\n#{transaction[:date]} || #{transaction[:deposit]} || #{transaction[:withdraw]} || #{transaction[:balance]}"
+      end
+      transactions
     end
-
-    'date || credit || debit || balance' + transactions
   end
 end
