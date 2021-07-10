@@ -30,7 +30,7 @@ describe Account do
 
     it 'turns the amount negative and runs statement.record_transaction if no exceptions are raised' do
       expect(statement).to receive(:record_transaction).with(-50)
-      account.withdraw(49)
+      account.withdraw(50)
     end
   end
 end
