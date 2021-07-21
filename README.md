@@ -4,17 +4,17 @@ Bank Tech Test is a program that allows the user to deposit and withdraw cash fr
 
 ## Installation and Bank Tech Test launching steps 
 
-1. Clone this repo
-1. cd into your local clone
-1. In your terminal, run 'irb -r './lib/account.rb'
-1. In IRB, type 'account = Account.new' to create a new Account object simply named *account*.
+1. `Clone this repo`
+1. `cd into your local clone`
+1. `In your terminal, run 'irb -r './lib/account.rb'`
+1. `In IRB, type 'account = Account.new' to create a new Account object simply named *account*.`
 
 ## How to use Bank Tech Test
 
 Listed below are some methods you can call in this application.
 
 ### Making a cash deposit
-* *account.deposit(amount)*
+* `*account.deposit(amount)*`
 
    Examples:
 
@@ -23,7 +23,7 @@ Listed below are some methods you can call in this application.
    `*account.deposit(99.99)*` - deposits £99.99 into the account
 
 ### Making a cash withdrawal
-* *account.withdraw(amount)*
+* `*account.withdraw(amount)*`
 
   Examples:
 
@@ -45,10 +45,10 @@ Listed below are some methods you can call in this application.
 
 ## For Developers to install
 
-1. Clone this repo 
-1. cd into your local clone
-1. run 'bundle install'
-1. All tests can be run by typing 'rspec' in the terminal
+1. `Clone this repo `
+1. `cd into your local clone`
+1. `run 'bundle install'`
+1. `All tests can be run by typing 'rspec' in the terminal`
 
 ### Notes on development
 I wrote this program in Ruby and used a TDD development process to implement it's features. I had planned to develop the program with three Classes (Account, Statement, Printer), which I hope I was successful in doing so meaningfully. All outside dependencies were doubled and mocked in my testing and I achieved 100% test coverage.
