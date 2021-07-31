@@ -18,7 +18,7 @@ class Account
     raise 'Invalid input. Please try again.' unless valid_input?(amount)
     raise 'Insufficient funds' if insufficient_funds?(amount)
 
-    negative_amount = (amount *= -1)
+    negative_amount = (amount * -1)
     statement.record_transaction(negative_amount)
   end
 

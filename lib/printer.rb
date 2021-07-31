@@ -1,6 +1,6 @@
 class Printer
   def self.print_statement(statement)
-    header + body(statement)
+    header + body(statement).join('')
   end
 
   class << self
@@ -11,13 +11,7 @@ class Printer
     end
 
     def body(statement)
-      transactions = ''
-
-      statement.log.reverse.each do |transaction|
-        transactions += "\n#{format_date(transaction)} || #{format_transaction(transaction)} || #{format_currency(transaction[:balance])}"
-      end
-
-      transactions
+      statement.log.reverse.map { |transaction| "\n#{format_date(transaction)} || #{format_transaction(transaction)} || #{format_currency(transaction[:balance])}" }
     end
 
     def format_date(transaction)
