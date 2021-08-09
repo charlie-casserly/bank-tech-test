@@ -1,16 +1,15 @@
 require 'printer'
 
 describe Printer do
-  context '#print_statement' do
-    let(:test_time) { Time.local(2021, 7, 5) }
-    before { Timecop.freeze(test_time) }
+  context '::print_statement' do
+    let(:test_time) { DateTime.new(2021, 7, 5) }
 
     it 'prints a detailed and formatted bank statement after one deposit' do
       statement = double(:statement, log: [
                            {
                              date: test_time,
-                             transaction: '1000.00',
-                             balance: '1000.00'
+                             transaction: '1000',
+                             balance: '1000'
                            }
                          ])
 
@@ -23,14 +22,14 @@ describe Printer do
       statement = double(:statement, log: [
                            {
                              date: test_time,
-                             transaction: '1000.00',
-                             balance: '1000.00'
+                             transaction: '1000',
+                             balance: '1000'
                            },
 
                            {
                              date: test_time,
-                             transaction: '-600.00',
-                             balance: '400.00'
+                             transaction: '-600',
+                             balance: '400'
                            }
                          ])
 

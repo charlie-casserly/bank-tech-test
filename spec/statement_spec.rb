@@ -4,9 +4,7 @@ describe Statement do
   let(:statement) { described_class.new }
 
   describe '#record_transaction' do
-    before do
-      statement.record_transaction(50)
-    end
+    before { statement.record_transaction(50) }
 
     it 'logs a date for a deposit' do
       expect(statement.log.first[:date]).to be_a(DateTime)
