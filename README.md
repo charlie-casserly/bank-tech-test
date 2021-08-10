@@ -33,11 +33,6 @@ Listed below are some methods you can call in this application.
 
 *__*Withdrawals cannot be made that will set the accounts balance below £0.*__*
 
-### Viewing your current balance
-* `*Printer.print_balance(account.statement)*`
-
-  This feature will print the account's current balance.
-
 ### Viewing your bank statement
 * `*Printer.print_statement(account.statement)*`
 

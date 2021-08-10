@@ -1,6 +1,6 @@
 class Printer
   def self.print_statement(statement)
-    header + body(statement).join('')
+    header + body(statement)
   end
 
   class << self
@@ -11,7 +11,7 @@ class Printer
     end
 
     def body(statement)
-      statement.log.reverse.map { |transaction| "\n#{format_date(transaction)} || #{format_transaction(transaction)} || #{format_currency(transaction[:balance])}" }
+      statement.log.reverse.map { |transaction| "\n#{format_date(transaction)} || #{format_transaction(transaction)} || #{format_currency(transaction[:balance])}" }.join('')
     end
 
     def format_date(transaction)
@@ -22,16 +22,16 @@ class Printer
       transaction[:transaction].to_i >= 0 ? format_credit(transaction) : format_debit(transaction)
     end
 
-    def format_currency(amount)
-      format('%.2f', amount)
-    end
-
     def format_credit(transaction)
       "#{format_currency(transaction[:transaction])} || "
     end
 
     def format_debit(transaction)
       " || #{format_currency(transaction[:transaction].to_i.abs)}"
+    end
+
+    def format_currency(amount)
+      format('%.2f', amount)
     end
   end
 end
