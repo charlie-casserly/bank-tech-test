@@ -2,7 +2,7 @@ require 'account'
 
 describe 'feature tests' do
   context 'printing' do
-    it 'prints all transactions made on an account through reading the information on its statement' do
+    it 'makes some deposits and withdrawals and then prints all transactions made on the account through reading the information on its statement' do
       account = Account.new
       test_date = DateTime.new(2021, 7, 5)
       Timecop.freeze(test_date)
