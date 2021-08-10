@@ -1,13 +1,13 @@
 class Printer
   def self.print_statement(statement)
-    header + body(statement)
+    printf header + body(statement)
   end
 
   class << self
     private
 
     def header
-      'date || credit || debit || balance'
+      '    date   || credit || debit || balance'
     end
 
     def body(statement)
@@ -23,11 +23,11 @@ class Printer
     end
 
     def format_credit(transaction)
-      "#{format_currency(transaction[:transaction])} || "
+      "#{format_currency(transaction[:transaction])}  ||       "
     end
 
     def format_debit(transaction)
-      " || #{format_currency(transaction[:transaction].to_i.abs)}"
+      " || #{format_currency(transaction[:transaction].to_i.abs)} "
     end
 
     def format_currency(amount)
