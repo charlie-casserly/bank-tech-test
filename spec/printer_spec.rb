@@ -13,9 +13,9 @@ describe Printer do
                            }
                          ])
 
-      expect(Printer.print_statement(statement)).to eq(
+      expect{Printer.print_statement(statement)}.to output(
         "date || credit || debit || balance\n05/07/2021 || 1000.00 ||  || 1000.00"
-      )
+      ).to_stdout
     end
 
     it 'prints a detailed and formatted bank statement after one deposit and one withdrawal' do
@@ -33,9 +33,9 @@ describe Printer do
                            }
                          ])
 
-      expect(Printer.print_statement(statement)).to eq(
+      expect{Printer.print_statement(statement)}.to output(
         "date || credit || debit || balance\n05/07/2021 ||  || 600.00 || 400.00\n05/07/2021 || 1000.00 ||  || 1000.00"
-      )
+      ).to_stdout
     end
   end
 end
