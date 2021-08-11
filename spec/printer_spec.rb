@@ -13,7 +13,7 @@ describe Printer do
                            }
                          ])
 
-      expect{Printer.print_statement(statement)}.to output(
+      expect { Printer.print_statement(statement) }.to output(
         "date || credit || debit || balance\n05/07/2021 || 1000.00 ||  || 1000.00"
       ).to_stdout
     end
@@ -33,7 +33,7 @@ describe Printer do
                            }
                          ])
 
-      expect{Printer.print_statement(statement)}.to output(
+      expect { Printer.print_statement(statement) }.to output(
         "date || credit || debit || balance\n05/07/2021 ||  || 600.00 || 400.00\n05/07/2021 || 1000.00 ||  || 1000.00"
       ).to_stdout
     end

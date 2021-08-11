@@ -11,7 +11,9 @@ class Printer
     end
 
     def body(statement)
-      statement.log.reverse.map { |transaction| "\n#{format_date(transaction)} || #{format_transaction(transaction)} || #{format_currency(transaction[:balance])}" }.join('')
+      statement.log.reverse.map do |transaction|
+        "\n#{format_date(transaction)} || #{format_transaction(transaction)} || #{format_currency(transaction[:balance])}"
+      end.join('')
     end
 
     def format_date(transaction)
