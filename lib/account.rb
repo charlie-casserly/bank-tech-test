@@ -29,6 +29,6 @@ class Account
   end
 
   def insufficient_funds?(amount)
-    (statement.current_balance - amount) < 0
+    amount > statement.current_balance
   end
 end
