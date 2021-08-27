@@ -7,13 +7,13 @@ class Printer
     private
 
     def header
-      'date || credit || debit || balance'
+      "date || credit || debit || balance\n"
     end
 
     def body(statement)
       statement.log.reverse.map do |transaction|
-        "\n#{format_date(transaction)} || #{format_transaction(transaction)} || #{format_currency(transaction[:balance])}"
-      end.join('')
+        "#{format_date(transaction)} || #{format_transaction(transaction)} || #{format_currency(transaction[:balance])}"
+      end.join("\n")
     end
 
     def format_date(transaction)
